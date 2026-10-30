@@ -10,6 +10,7 @@ const RailwayEnvironmentScript = preload("res://railway_environment.gd")
 const WorldUpgradeScript = preload("res://world_upgrade.gd")
 const TrainRealismScript = preload("res://train_realism.gd")
 const TrainAudioScript = preload("res://train_audio.gd")
+const WorldwideGameplayScript = preload("res://worldwide_gameplay.gd")
 
 func _ready() -> void:
 	var menu = WorldMenuScript.new()
@@ -41,6 +42,11 @@ func _start_game(profile: Dictionary) -> void:
 	audio_system.setup(train)
 
 	train.progress = 20.0
+
+	var worldwide_systems = WorldwideGameplayScript.new()
+	add_child(worldwide_systems)
+	worldwide_systems.setup(track, train, profile)
+
 
 	if train.has_method("apply_profile"):
 		train.apply_profile(profile)
