@@ -32,13 +32,13 @@ func _start_game(profile: Dictionary) -> void:
 	var train = TrainScript.new()
 	track.add_child(train)
 	train.setup(track, 3)
-        var realism = TrainRealismScript.new()
-        train.add_child(realism)
-        realism.setup(train)
+	var realism = TrainRealismScript.new()
+	train.add_child(realism)
+	realism.setup(train)
 
-        var audio_system = TrainAudioScript.new()
-        train.add_child(audio_system)
-        audio_system.setup(train)
+	var audio_system = TrainAudioScript.new()
+	train.add_child(audio_system)
+	audio_system.setup(train)
 
 	train.progress = 20.0
 
